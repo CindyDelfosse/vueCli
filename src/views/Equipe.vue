@@ -1,6 +1,6 @@
 <template>
     <div class="contact container">
-        <h1 class="title">Voici notre équipe</h1>
+        <h1 class="title"> {{ titre | cap }} à {{ prix | prix }} </h1>
         <hr>
         <div class="columns">
             <EquipePres v-for="membre in equipes" :key="membre.nom" :membre="membre"></EquipePres>
@@ -11,12 +11,16 @@
 <script>
 // @ is an alias to /src
 import EquipePres from '@/components/EquipePres.vue'
+import Capitalize from '@/filters/Capitalize'
+import FormatEuro from '@/filters/FormatEuro'
 
 export default {
   name: 'contact',
   data(){
     return {
-      equipes : [
+        titre : "team",
+        prix : 999.9888888,
+        equipes : [
           {
               'nom' : 'Delfosse',
               'prenom' : 'Cindy',
@@ -43,6 +47,10 @@ export default {
   },
   components: {
     EquipePres
+  }, 
+  filters: {
+    cap: Capitalize, 
+    prix: FormatEuro
   }
 }
 </script>

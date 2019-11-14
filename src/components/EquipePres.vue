@@ -34,7 +34,7 @@
 export default {
   name: 'EquipePres',
   props: {
-      membre: String
+      membre: Object
   }
 }
 </script>
