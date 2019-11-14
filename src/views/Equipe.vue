@@ -1,6 +1,6 @@
 <template>
     <div class="contact container">
-        <h1 class="title"> {{ titre | cap }} à {{ prix | prix }} </h1>
+        <h1 class="title"> {{ titre | cap }} à {{ prix | prix('$') }} </h1>
         <hr>
         <div class="columns">
             <EquipePres v-for="membre in equipes" :key="membre.nom" :membre="membre"></EquipePres>
